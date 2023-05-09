@@ -19,7 +19,7 @@ export const PhoneBook = styled.h1`
 `;
 export const Title = styled.h2`
   display: flex;
-  padding: 1px;
+  padding: 2px;
   margin: 1px;
 
   color: rgba(50, 57, 65, 1);
