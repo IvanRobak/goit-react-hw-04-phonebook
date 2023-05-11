@@ -27,16 +27,14 @@ export const App = () => {
     const number = e.number;
     const contactsList = [...contacts];
 
-    if (contactsList.findIndex(contact => name === contact.name) !== -1) {
+    if (contactsList.find(contact => name === contact.name)) {
       alert(`${name} is already in contacts.`);
-    } else {
-      contactsList.push({ name, id, number });
     }
-    return setContacts(contactsList);
+    return setContacts(prevState => [...prevState, { id, name, number }]);
   };
 
-  const handeDeleteContact = e => {
-    setContacts(contacts.filter(contacts => contacts.id !== e));
+  const handeDeleteContact = id => {
+    setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
 
   const handleFilterName = e => {
@@ -45,10 +43,9 @@ export const App = () => {
   };
 
   const filterContacts = () => {
-    const filterContactList = contacts.filter(contact => {
+    return contacts.filter(contact => {
       return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
-    return filterContactList;
   };
 
   return (
