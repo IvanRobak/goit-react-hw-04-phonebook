@@ -25,9 +25,8 @@ export const App = () => {
     const id = nanoid();
     const name = e.name;
     const number = e.number;
-    const contactsList = [...contacts];
 
-    if (contactsList.find(contact => name === contact.name)) {
+    if (contacts.find(contact => name === contact.name)) {
       alert(`${name} is already in contacts.`);
     }
     return setContacts(prevState => [...prevState, { id, name, number }]);

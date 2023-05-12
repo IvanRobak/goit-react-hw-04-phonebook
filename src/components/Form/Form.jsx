@@ -21,7 +21,7 @@ export const ContactForm = ({ onSubmit }) => {
   };
 
   const handleSubmit = e => {
-    onSubmit({ name: name, number: number });
+    onSubmit({ name, number });
     setName('');
     setNumber('');
     e.preventDefault();
